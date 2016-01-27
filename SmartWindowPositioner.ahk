@@ -105,16 +105,15 @@ SendRegularWindowsPlusDirectionInput(direction)
 
 SendShiftWindowsPlusDirectionInput(direction)
 {
-	;Moving onto the main screen ends on wrong snapping side, thus componsate.
-	;Windows key is held down for allowing further snapping commands without pressing the key again.
+	;Moving onto the main screen ends on wrong snapping side, thus compensate.
 	Suspend	
 	if (direction = 0)
 	{
-		Send,+#{Left}#{Right}#{Right}{LWin down}
+		Send,{Shift down}#{Left}{Shift up}#{Right}#{Right}
 	}
 	else
 	{
-		Send,+#{Right}#{Left}#{Left}{LWin down}
+		Send,{Shift down}#{Right}{Shift up}#{Left}#{Left}
 	}	
 	Suspend
 }
