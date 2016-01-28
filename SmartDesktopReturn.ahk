@@ -20,7 +20,15 @@ ProcessWindowsD()
 	else if(mode < 0)
 	{
 		MouseGetPos, mousePosX, mousePosY, idOfWindowUnderMouse
-		activeMon := GetMonitorIndexFromWindow(idOfWindowUnderMouse)
+		WinGetTitle,thisTitle, ahk_id %idOfWindowUnderMouse%
+		if(thisTitle <> "Program Manager" AND thisTitle <> "Start" AND thisTitle <> "Plugfree NETWORK" AND thisTitle <> "")
+		{
+			activeMon := GetMonitorIndexFromWindow(idOfWindowUnderMouse)
+		}
+		else
+		{
+			Return
+		}
 	}
 	else
 	{
